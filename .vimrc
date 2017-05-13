@@ -66,7 +66,7 @@ nmap <C-l>   :nohl<CR>
 
 " Setting
 syntax on	            			" Using color on vim
-#color molokai			        	" Theme
+"color molokai			        	" Theme
 set backspace=start,eol,indent      " normally using backspace
 set clipboard=unnamed			    " share CB with system
 set number				            " show line number
