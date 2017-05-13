@@ -3,6 +3,9 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/kshih/.oh-my-zsh
 
+# zsh-completions && git-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -100,10 +103,15 @@ alias cp="cp -i"
 alias grep="grep --color=auto"
 alias cask="brew cask"
 alias dk="docker"
+alias rd2G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((2*1024*2048)))"
+alias rd4G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((4*1024*2048)))"
 #ssh
 alias ptt="ssh bbsu@ptt.cc"
 alias wp="ssh Shih@120.113.173.155"
+alias vm="ssh -v kidd@192.168.0.5"
+alias vm1="ssh -v kidd@10.51.174.214"
 
 #cd 
 alias rd="cd /Volumes/Ramdisk/"
 alias gd="cd ~/Google\ Drive/Desktop"
+alias ryu="cd /Users/kshih/ryu/ryu/app"

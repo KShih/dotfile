@@ -11,7 +11,12 @@ Plug 'vim-airline/vim-airline'		" just like powerline
  " let g:airline#extensions#tabline#enable = 1
  let g:airline_powerline_fonts = 1
  let g:airline_theme='wombat'
+ let g:airline#extensions#syntastic#enabled = 1
+ let g:airline#extensions#branch#enabled = 1
+ let g:airline#extensions#tagbar#enabled = 1
+ let g:airline_skip_empty_sections = 1
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'       " 在編輯時顯示git diff的結果
 
 " Usage
 Plug 'vim-scripts/auto-pairs'       " Powerup pair's usage
@@ -31,6 +36,18 @@ Plug 'scrooloose/syntastic'
  " let g:syntastic_auto_loc_list = 1
  let g:syntastic_check_on_open = 1
  let g:syntastic_check_on_wq = 0
+
+" Markdown
+Plug 'godlygeek/tabular',{'for': ['markdown']} " 文字對齊
+Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
+Plug 'iamcco/markdown-preview.vim'             " 即時預覽
+ let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+
+" Python
+Plug 'hdima/python-syntax',{'for': ['python']}
+ let python_highlight_all = 1
+Plug 'zchee/deoplete-jedi',{'for': ['python']}
+
 call plug#end()
 filetype plugin indent on
 "########################################### Plugin ###
@@ -44,9 +61,12 @@ cab Wq  wq
 cab wQ  wq
 cab Set set
 
+" Hotkey
+nmap <C-l>   :nohl<CR>
+
 " Setting
 syntax on	            			" Using color on vim
-" color molokai			        	" Theme
+color molokai			        	" Theme
 set backspace=start,eol,indent      " normally using backspace
 set clipboard=unnamed			    " share CB with system
 set number				            " show line number
