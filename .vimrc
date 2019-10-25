@@ -40,8 +40,12 @@ Plug 'scrooloose/syntastic'
 " Markdown
 Plug 'godlygeek/tabular',{'for': ['markdown']} " 文字對齊
 Plug 'plasticboy/vim-markdown',{'for': ['markdown']}
-Plug 'iamcco/markdown-preview.vim'             " 即時預覽
- let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+ autocmd FileType markdown let b:sleuth_automatic=0
+ autocmd FileType markdown set conceallevel=0
+ autocmd FileType markdown normal zR
+ let g:vim_markdown_frontmatter=1
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+ let g:mkdp_auto_start = 1
 
 " Python
 Plug 'hdima/python-syntax',{'for': ['python']}
@@ -66,7 +70,7 @@ nmap <C-l>   :nohl<CR>
 
 " Setting
 syntax on	            			" Using color on vim
-"color molokai			        	" Theme
+color molokai			        	" Theme
 set backspace=start,eol,indent      " normally using backspace
 set clipboard=unnamed			    " share CB with system
 set number				            " show line number

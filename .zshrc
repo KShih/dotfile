@@ -3,8 +3,22 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/kshih/.oh-my-zsh
 
+# virtualenv
+export WORKON_HOME=$HOME/code/.virtualenvs
+export PROJECT_HOME=$HOME/code
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export WORKON_HOME=$HOME/Envs 
+source /usr/local/bin/virtualenvwrapper.sh
+
 # zsh-completions && git-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# ONOS env setting
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+#export ONOS_ROOT="/Users/$USER/onos"
+#source $ONOS_ROOT/tools/dev/bash_profile
+
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -56,7 +70,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram history time)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,6 +119,7 @@ alias cask="brew cask"
 alias dk="docker"
 alias rd2G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((2*1024*2048)))"
 alias rd4G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((4*1024*2048)))"
+alias save='git commit -a -m "save 'date'"'
 #ssh
 alias ptt="ssh bbsu@ptt.cc"
 alias wp="ssh Shih@120.113.173.155"
@@ -115,3 +130,12 @@ alias vm1="ssh -v kidd@10.51.174.214"
 alias rd="cd /Volumes/Ramdisk/"
 alias gd="cd ~/Google\ Drive/Desktop"
 alias ryu="cd /Users/kshih/ryu/ryu/app"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kshih/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kshih/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kshih/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kshih/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="/Users/kshih/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
