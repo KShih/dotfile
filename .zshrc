@@ -2,6 +2,13 @@
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/kshih/.oh-my-zsh
+export PATH="/usr/local/mysql/bin:$PATH"
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+export CLICOLOR="true"
 
 # virtualenv
 export WORKON_HOME=$HOME/code/.virtualenvs
@@ -14,18 +21,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 # zsh-completions && git-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# ONOS env setting
-#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-#export ONOS_ROOT="/Users/$USER/onos"
-#source $ONOS_ROOT/tools/dev/bash_profile
-
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
 
 # If you come from bash you might have to change your $PATH.
 # Uncomment the following line to use case-sensitive completion.
@@ -114,17 +116,21 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias ls="ls -HGF"
 alias mv="mv -i"
 alias cp="cp -i"
+alias less="less -R"
 alias grep="grep --color=auto"
 alias cask="brew cask"
 alias dk="docker"
 alias rd2G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((2*1024*2048)))"
 alias rd4G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((4*1024*2048)))"
 alias save='git commit -a -m "save 'date'"'
+alias py3="python3"
 #ssh
 alias ptt="ssh bbsu@ptt.cc"
 alias wp="ssh Shih@120.113.173.155"
 alias vm="ssh -v kidd@192.168.0.5"
 alias vm1="ssh -v kidd@10.51.174.214"
+# alias aws="ssh -i "~/.ssh/aws-linux.pem" ec2-user@ec2-54-242-31-7.compute-1.amazonaws.com"
+function mkcd { mkdir -p "$@" && cd "$@";  }
 
 #cd 
 alias rd="cd /Volumes/Ramdisk/"
