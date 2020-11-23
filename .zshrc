@@ -123,13 +123,16 @@ bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export HOMEBREW_NO_AUTO_UPDATE=1
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export PATH="/usr/local/mysql/bin:$PATH"
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+export GO111MODULE=on
+#export PATH=$PATH:$GOROOT/bin
 export NVM_DIR="/Users/kshih/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -159,6 +162,7 @@ alias rd2G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$(
 alias rd4G="diskutil erasevolume HFS+ RamDisk $(hdiutil attach -nomount ram://$((4*1024*2048)))"
 alias save='git commit -a -m "save 'date'"'
 alias py3="python3"
+alias mongoserver="brew services start mongodb-community; sudo mongod;"
 #ssh
 alias ptt="ssh bbsu@ptt.cc"
 alias wp="ssh Shih@120.113.173.155"
